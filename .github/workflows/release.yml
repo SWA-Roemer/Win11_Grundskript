@@ -24,7 +24,7 @@ jobs:
       - name: Release ZIP erstellen
         run: |
           zip -r Win11_Grundskript.zip \
-            apps_exkl_m365.txt \
+            apps_m365.txt \
             apps_standard.txt \
             execute_grundskript.bat \
             version.txt \

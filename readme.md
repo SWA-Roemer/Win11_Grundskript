@@ -2,43 +2,38 @@
 
 Ein Satz von PowerShell-Skripten und Konfigurationsdateien, um Windows-Installationen konsequent auf einen bestimmten Stand zu bringen. Es entfernt außerdem unerwünschte vorinstallierte Windows 11 Services.
 
-## 🚀 Funktionen
+# 🛠 Anwendung
+1. Lade die letzte Version unter https://github.com/SWA-Roemer/Win11_Grundskript/releases herunter
+2. Entpacke die ZIP in einen Ordner
+3. Führe die `execute_grundskript.bat` als Administrator aus!
 
-- **Vollständig anpassbar:** Apps werden über einfache Textdateien gesteuert.
-- **Automatisierung:** Einfacher Start über eine Batch-Datei (`.bat`) mit Administratorrechten.
-- **Sauberes System:** Entfernt Überreste von Bing, Xbox, Teams und Telemetrie-bezogenen Apps.
-
-## 📂 Dateistruktur
-
-- `execute_grundskript.bat`: Der "One-Click" Starter. Ruft das PowerShell-Skript mit den richtigen Berechtigungen auf.
-- `windows_grundskript.ps1`: Das Hauptskript, welches die Listen einliest und die Deinstallation durchführt.
-- `apps_standard.txt`: Liste aller zu entfernenden Apps (inkl. Office).
-- `apps_exkl_m365.txt`: Liste aller zu entfernenden Apps (exkl. Office).
-
-## 🛠 Anwendung
-
-### Vorbereitung
-1. Lade das Repository herunter oder klone es.
-2. Stelle sicher, dass du Administratorrechte auf dem System hast.
-
-### Ausführung
-1. Öffne den Ordner.
-2. Klicke mit der rechten Maustaste auf `execute_grundskript.bat` und wähle **"Als Administrator ausführen"**.
-3. Das Skript erkennt automatisch die Konfigurationsdateien und beginnt mit der Deinstallation der Pakete.
-
-> **Hinweis:** Solltest du Microsoft 365 behalten wollen, stelle sicher, dass das Skript auf die `apps_exkl_m365.txt` zugreift oder benenne die Dateien entsprechend um.
-
-## 📋 Liste der entfernten Apps (Auszug)
-
-Das Skript entfernt unter anderem:
-- **Bing:** News, Weather, Search.
-- **Xbox:** Game Overlay, Identity Provider, Speech-to-Text.
-- **Microsoft 365:** Office Hub, OneNote, Outlook (optional).
-- **Sonstiges:** Skype, Clipchamp, Solitaire, Mixed Reality Portal, Feedback Hub, People, Maps.
-
-## ⚠️ Sicherheitshinweis
-
-Die Verwendung erfolgt auf eigene Gefahr. Das Entfernen von System-Apps kann in seltenen Fällen zu unerwartetem Verhalten führen. Es wird empfohlen, vor der Ausführung einen **Systemwiederherstellungspunkt** zu erstellen.
+# 📂 Erklärung des Skriptes
+Das Skript ist in Module unterteilt, welcher nacheinander ausgeführt werden:
+```sh
+├─── apps_exkl_m365.txt [App Liste ohne M365]
+├─── apps_standard.txt [App Liste mit M365]
+├─── execute_grundskript.bat [Datei um dieses Skript auszuführen]
+├─── version.txt
+├─── windows_grundskript.ps1 [Die Hauptdatei inkl. Updater]
+└─── modules
+     ├─── 00_config_file.ps1 [Auswahl der Apps Datei (Mit/Ohne M365)]
+     ├─── 01_outlook_removal.ps1 [Entfernt das neue Outlook]
+     ├─── 02_outlook_registry.ps1 [Verhindert neuinstallation von Outlook]
+     ├─── 03_app_removal.ps1 [Entfernt die in 00 definierten Apps]
+     ├─── 04_energy_options.ps1 [Setzt Energieoptionen]
+     ├─── 05_win_features.ps1 [Aktiviert .NET 3.5 und TCP/IP]
+     ├─── 06_firewall_rdp.ps1 [Aktiviert Firewall Regeln für RDP]
+     ├─── 07_rdp.ps1 [Aktiviert RDP]
+     ├─── 08_explorer.ps1 [Aktiviert Dateiendungen]
+     ├─── 09_disconnect.ps1 [Setzt autodisconnect auf -1]
+     ├─── 10_numlock.ps1 [Aktiviert Numlock beim start]
+     ├─── 11_telemetry.ps1 [Deaktiviert telemetrie]
+     ├─── 12_bing_search.ps1 [Deaktiviert Bing Suche im Startmenü]
+     └─── 13_lockscreen.ps1 [Deaktiviert Werbung im Lockscreen]
+```
 
 ---
-**Entwickelt für eine saubere, schnelle und datenschutzfreundliche Windows-Erfahrung.**
+
+⚠️ Sicherheitshinweis
+
+Die Verwendung erfolgt auf eigene Gefahr. Das Entfernen von System-Apps kann in seltenen Fällen zu unerwartetem Verhalten führen. Es wird empfohlen, vor der Ausführung einen Systemwiederherstellungspunkt zu erstellen.

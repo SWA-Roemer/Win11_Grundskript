@@ -7,7 +7,7 @@ on:
     types: [published]
 
 jobs:
-  attach-script:
+  build-and-attach:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,9 +18,22 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
 
-      - name: windows_grundskript.ps1 zum Release hinzufügen
+      - name: version.txt mit Tag aktualisieren
+        run: echo "${{ github.event.release.tag_name }}" > version.txt
+
+      - name: Release ZIP erstellen
+        run: |
+          zip -r Win11_Grundskript.zip \
+            apps_exkl_m365.txt \
+            apps_standard.txt \
+            execute_grundskript.bat \
+            version.txt \
+            windows_grundskript.ps1 \
+            modules/
+
+      - name: ZIP zum Release hinzufügen
         uses: softprops/action-gh-release@v2
         with:
-          files: windows_grundskript.ps1
+          files: Win11_Grundskript.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

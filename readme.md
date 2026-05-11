@@ -2,18 +2,18 @@
 
 Ein Satz von PowerShell-Skripten und Konfigurationsdateien, um Windows-Installationen konsequent auf einen bestimmten Stand zu bringen. Es entfernt außerdem unerwünschte vorinstallierte Windows 11 Services.
 
-# 🛠 Anwendung
+## 🛠 Anwendung
 1. Lade die letzte Version unter https://github.com/SWA-Roemer/Win11_Grundskript/releases herunter
 2. Entpacke die ZIP in einen Ordner
 3. Führe die `execute_grundskript.bat` als Administrator aus!
 
-# 📂 Erklärung des Skriptes
+## 📂 Erklärung des Skriptes
 Das Skript ist in Module unterteilt, welcher nacheinander ausgeführt werden:
 ```sh
-├─── apps_exkl_m365.txt [App Liste ohne M365]
-├─── apps_standard.txt [App Liste mit M365]
+├─── apps_m365.txt [App Liste der M365 Apps, kann optional dazugeladen werden]
+├─── apps_standard.txt [App Liste der Bloatware von Windows]
 ├─── execute_grundskript.bat [Datei um dieses Skript auszuführen]
-├─── version.txt
+├─── version.txt [Die aktuelle lokale Version, für den Updater]
 ├─── windows_grundskript.ps1 [Die Hauptdatei inkl. Updater]
 └─── modules
      ├─── 00_config_file.ps1 [Auswahl der Apps Datei (Mit/Ohne M365)]
@@ -34,6 +34,6 @@ Das Skript ist in Module unterteilt, welcher nacheinander ausgeführt werden:
 
 ---
 
-⚠️ Sicherheitshinweis
+## ⚠️ Sicherheitshinweis
 
 Die Verwendung erfolgt auf eigene Gefahr. Das Entfernen von System-Apps kann in seltenen Fällen zu unerwartetem Verhalten führen. Es wird empfohlen, vor der Ausführung einen Systemwiederherstellungspunkt zu erstellen.

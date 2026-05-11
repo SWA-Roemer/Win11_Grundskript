@@ -1,0 +1,14 @@
+# ========================================
+# M365 Konfiguration
+# ========================================
+
+# Microsoft 365 / Office
+Microsoft.MicrosoftOfficeHub
+Microsoft.Office.OneNote
+Microsoft.OneNote
+Microsoft.Microsoft365
+Microsoft.OfficeHub
+
+# Teams
+MicrosoftTeams
+MSTeams

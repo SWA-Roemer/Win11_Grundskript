@@ -1,13 +1,14 @@
 # ========================================
 # Standard-Konfiguration
-# Entfernt alle Bloatware inkl. Microsoft 365
 # ========================================
-# Zeilen mit # sind Kommentare und werden ignoriert
 
 # Bing Apps
 Microsoft.BingNews
 Microsoft.BingWeather
 Microsoft.BingSearch
+Microsoft.BingFinance
+Microsoft.BingSports
+Microsoft.BingTravel
 
 # Xbox Apps
 Microsoft.Xbox.TCUI
@@ -17,17 +18,6 @@ Microsoft.XboxGamingOverlay
 Microsoft.XboxIdentityProvider
 Microsoft.XboxSpeechToTextOverlay
 Microsoft.GamingApp
-
-# Microsoft 365 / Office
-Microsoft.MicrosoftOfficeHub
-Microsoft.Office.OneNote
-Microsoft.OneNote
-Microsoft.Microsoft365
-Microsoft.OfficeHub
-
-# Teams
-MicrosoftTeams
-MSTeams
 
 # Sonstige Apps
 Microsoft.GetHelp
@@ -52,3 +42,6 @@ Microsoft.PowerAutomate
 MicrosoftCorporationII.QuickAssist
 MicrosoftCorporationII.RemoteHelp
 Microsoft.Edge.GameAssist
+Microsoft.Paint3D
+Microsoft.LinkedInForWindows
+Microsoft.Windows.DevHome
